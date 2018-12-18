@@ -52,13 +52,9 @@ def get_users_values() -> dict:
         try:
             # Get input
             num_drinks = input("How many drinks do we need? ")
-            num_people = input(
-                "How many people will be drinking at the party? "
-            )
 
             # Validate
             num_drinks = int(num_drinks)
-            num_people = int(num_people)
 
             # Good
             break
@@ -104,7 +100,6 @@ def get_users_values() -> dict:
 
     return {
         "num_drinks": num_drinks,
-        "num_people": num_people,
         "percent_beer": percent_beer,
         "percent_wine": percent_wine,
         "percent_hard_liquor": percent_hard_liquor,
