@@ -5,6 +5,6 @@ currency_name: "CAD"
 currency_symbol: "$"
 
 # average prices
-price_per_beer: "13"          # 5 x 330mL
+price_per_beer: "13"          # 6 x 330mL (a six-pack)
 price_per_wine: "30"          # 750mL
 price_per_hard_liquor: "40"   # 750mL
