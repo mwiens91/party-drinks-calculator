@@ -25,7 +25,7 @@ drinks calculator with
 ./run_calculator.py
 ```
 
-and see all available options with
+or see all available options with
 
 ```
 ./run_calculator.py --help
