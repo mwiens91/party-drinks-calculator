@@ -1,7 +1,7 @@
 """Contains the main function."""
 
 import yaml
-from .io import print_welcome_message
+from .io import print_welcome_message, get_users_values
 from .runtime_args import parse_runtime_args
 
 
@@ -16,3 +16,7 @@ def main():
 
     # Say "welcome"!
     print_welcome_message(config_dict)
+    print()
+
+    # Get values from the user
+    user_dict = get_users_values()
