@@ -1,15 +1,26 @@
 """Calculate quantities."""
 
-from math import ceil
-from .constants import DRINKS_PER_BEER, DRINKS_PER_WINE, DRINKS_PER_HARD_LIQUOR
+from math import ceil, floor
+from .constants import (
+    DRINKS_PER_BEER,
+    DRINKS_PER_WINE,
+    DRINKS_PER_HARD_LIQUOR,
+    CEILING,
+    FLOOR,
+)
 
 
-def calculate_liquor_quantities(config_dict: dict, user_dict: dict) -> dict:
+def calculate_liquor_quantities(
+    config_dict: dict, user_dict: dict, rounding_method: str = CEILING
+) -> dict:
     """Get liquor quantities and prices given our input.
 
     Args:
         config_dict: A dictionary containing config values.
         user_dict: A dictionary containing values inputted by the user.
+        rounding_method (optional): The method to use for rounding.
+            Must be one of the rounding constants found in the constants
+            module.
 
     Returns:
         A dictionary containing calculated data.
@@ -27,9 +38,16 @@ def calculate_liquor_quantities(config_dict: dict, user_dict: dict) -> dict:
         total_required_drinks * user_dict["percent_hard_liquor"] / 100
     )
 
-    required_beer = ceil(required_beer_drinks / DRINKS_PER_BEER)
-    required_wine = ceil(required_wine_drinks / DRINKS_PER_WINE)
-    required_hard_liquor = ceil(
+    if rounding_method == CEILING:
+        round_fn = ceil
+    elif rounding_method == FLOOR:
+        round_fn = floor
+    else:
+        round_fn = round
+
+    required_beer = round_fn(required_beer_drinks / DRINKS_PER_BEER)
+    required_wine = round_fn(required_wine_drinks / DRINKS_PER_WINE)
+    required_hard_liquor = round_fn(
         required_hard_liquor_drinks / DRINKS_PER_HARD_LIQUOR
     )
 

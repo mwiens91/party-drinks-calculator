@@ -9,3 +9,8 @@ DRINKS_PER_HARD_LIQUOR = 16  # 750mL
 BEER_VERBOSE_NAME = "6 x 330mL beer"
 WINE_VERBOSE_NAME = "750mL bottle wine"
 HARD_LIQUOR_VERBOSE_NAME = "750mL bottle hard liquor"
+
+# Choices for rounding
+CEILING = "ceiling"
+FLOOR = "floor"
+ROUND = "round"

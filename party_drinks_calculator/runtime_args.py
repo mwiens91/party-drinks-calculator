@@ -2,6 +2,7 @@
 
 import argparse
 import os.path
+from .constants import CEILING, FLOOR, ROUND
 from .version import DESCRIPTION, NAME, VERSION
 
 CONFIG_FILE_NAME = "config.yaml"
@@ -29,6 +30,15 @@ def parse_runtime_args() -> argparse.Namespace:
         "--config",
         default=default_config_file_path,
         help="explicit path to config file",
+    )
+    parser.add_argument(
+        "--rounding",
+        default=CEILING,
+        choices=(CEILING, FLOOR, ROUND),
+        help=(
+            "rounding method used when allocating drinks"
+            " into drink units (e.g., bottles)"
+        ),
     )
     parser.add_argument(
         "--version", action="version", version="%(prog)s " + VERSION

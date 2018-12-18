@@ -24,7 +24,9 @@ def main():
     print()
 
     # Get our results
-    results_dict = calculate_liquor_quantities(config_dict, user_dict)
+    results_dict = calculate_liquor_quantities(
+        config_dict, user_dict, rounding_method=cli_args.rounding
+    )
 
     # Print the results
     print_results(config_dict, results_dict)
