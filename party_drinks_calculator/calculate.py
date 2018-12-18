@@ -17,10 +17,14 @@ def calculate_liquor_quantities(config_dict: dict, user_dict: dict) -> dict:
     # Calculate total required drinks
     total_required_drinks = user_dict["num_drinks"]
 
-    required_beer_drinks = total_required_drinks * user_dict["percent_beer"]
-    required_wine_drinks = total_required_drinks * user_dict["percent_wine"]
+    required_beer_drinks = (
+        total_required_drinks * user_dict["percent_beer"] / 100
+    )
+    required_wine_drinks = (
+        total_required_drinks * user_dict["percent_wine"] / 100
+    )
     required_hard_liquor_drinks = (
-        total_required_drinks * user_dict["percent_hard_liquor"]
+        total_required_drinks * user_dict["percent_hard_liquor"] / 100
     )
 
     required_beer = ceil(required_beer_drinks / DRINKS_PER_BEER)
@@ -46,5 +50,6 @@ def calculate_liquor_quantities(config_dict: dict, user_dict: dict) -> dict:
         "required_hard_liquor": required_hard_liquor,
         "beer_cost": beer_cost,
         "wine_cost": wine_cost,
-        "hard_liquor_cost": total_cost,
+        "hard_liquor_cost": hard_liquor_cost,
+        "total_cost": total_cost,
     }

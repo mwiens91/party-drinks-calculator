@@ -104,3 +104,48 @@ def get_users_values() -> dict:
         "percent_wine": percent_wine,
         "percent_hard_liquor": percent_hard_liquor,
     }
+
+
+def print_results(config_dict: dict, results_dict: dict):
+    """Print calculation results to user.
+
+    Args:
+        config_dict: A dictionary containing config values.
+        results_dict: A dictionary containing results.
+    """
+    # Build up a table
+    unprocessed_rows = [
+        ["beer", "required_beer", BEER_VERBOSE_NAME, "beer_cost"],
+        ["wine", "required_wine", WINE_VERBOSE_NAME, "wine_cost"],
+        [
+            "hard liquor",
+            "required_hard_liquor",
+            HARD_LIQUOR_VERBOSE_NAME,
+            "hard_liquor_cost",
+        ],
+    ]
+
+    processed_rows = [
+        [
+            r[0],
+            "%s of %s" % (results_dict[r[1]], r[2]),
+            "%s%.2f" % (config_dict["currency_symbol"], results_dict[r[3]]),
+        ]
+        for r in unprocessed_rows
+    ]
+
+    # Format the total cost nicely
+    total_cost = "%s%.2f" % (
+        config_dict["currency_symbol"],
+        results_dict["total_cost"],
+    )
+
+    # Build the final table
+    results_table = [
+        ["type", "quantity", "cost"],
+        *processed_rows,
+        ["total", "", total_cost],
+    ]
+
+    # Print the table
+    print(tabulate(results_table, headers="firstrow", tablefmt="fancy_grid"))

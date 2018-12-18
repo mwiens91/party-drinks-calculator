@@ -2,7 +2,7 @@
 
 import yaml
 from .calculate import calculate_liquor_quantities
-from .io import print_welcome_message, get_users_values
+from .io import print_welcome_message, get_users_values, print_results
 from .runtime_args import parse_runtime_args
 
 
@@ -25,3 +25,6 @@ def main():
 
     # Get our results
     results_dict = calculate_liquor_quantities(config_dict, user_dict)
+
+    # Print the results
+    print_results(config_dict, results_dict)
