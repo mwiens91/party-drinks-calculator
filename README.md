@@ -22,5 +22,11 @@ and modify it as necessary. Then, once you're ready, run the party
 drinks calculator with
 
 ```
-./run_calculator
+./run_calculator.py
+```
+
+and see all available options with
+
+```
+./run_calculator.py --help
 ```
