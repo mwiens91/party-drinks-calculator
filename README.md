@@ -3,4 +3,4 @@
 
 # party-drinks-calculator
 
-### NOTE: this project is an active work in progress
+[![asciicast](https://asciinema.org/a/217351.svg)](https://asciinema.org/a/217351)
