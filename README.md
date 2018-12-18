@@ -3,4 +3,24 @@
 
 # party-drinks-calculator
 
+## What's this do?
+
+Watch this:
+
 [![asciicast](https://asciinema.org/a/217351.svg)](https://asciinema.org/a/217351)
+
+## Usage
+
+After cloning this repo, copy the [example config
+file](config.yaml.example) with
+
+```
+cp config.yaml.example config.yaml
+```
+
+and modify it as necessary. Then, once you're ready, run the party
+drinks calculator with
+
+```
+./run_calculator
+```
