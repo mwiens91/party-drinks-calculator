@@ -15,4 +15,4 @@ def main():
         config_dict = yaml.load(config_file)
 
     # Say "welcome"!
-    print_welcome_message()
+    print_welcome_message(config_dict)
